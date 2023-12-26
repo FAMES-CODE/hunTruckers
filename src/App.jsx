@@ -1,7 +1,19 @@
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+
+import { Home, User, Vtc } from "./pages";
+
 function App() {
   return (
     <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/user" element={<User />} />
+          <Route path="/vtc" element={<Vtc />} />
+     
+           
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
