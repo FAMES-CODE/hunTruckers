@@ -10,8 +10,6 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/user" element={<User />} />
           <Route path="/vtc" element={<Vtc />} />
-     
-           
         </Routes>
       </BrowserRouter>
     </>
