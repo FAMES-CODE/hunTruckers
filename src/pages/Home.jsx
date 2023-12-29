@@ -98,9 +98,7 @@ export default function Home() {
                     </div>
                   );
                 })}
-                <div className="flex justify-center items-center m-4 border-2 rounded">
-                  <h1 className="text-4xl">See more on <a href="https://www.twitch.tv/directory/category/euro-truck-simulator-2/" className="text-[#bf94f0] italic">TWITCH</a></h1>
-                </div>
+               
               </div>
             </div>
           </div>
