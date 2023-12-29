@@ -1,6 +1,6 @@
 export default function Card({ servername, state, players, maxplayers }) {
   return (
-    <div className="flex gap-12 items-center bg-[#34465a] mx-8 p-8 rounded-xl">
+    <div className="flex gap-12 items-center shadow shadow-slate-500 bg-[#34465a] mx-8 p-8 rounded-xl">
       <div>
         {state == "true" ? (
           <div>

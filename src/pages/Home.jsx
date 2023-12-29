@@ -69,13 +69,20 @@ export default function Home() {
 
             <div className="flex-col mt-16">
               <div>
-                <h1 className="font-bold text-2xl">Streamers playing ETS2 on <span className="text-[#bf94f0] italic">TWITCH</span></h1>
+                <h1 className="font-bold text-2xl">
+                  Streamers playing ETS2 on{" "}
+                  <span className="text-[#bf94f0] italic">TWITCH</span>
+                </h1>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-3 ">
                 {streamers.slice(0, 8).map((e, key) => {
                   return (
-                    <div className="flex justify-center items-center" key={key}>
+                    <div
+                      className="flex justify-center items-center m-4"
+                      key={key}
+                    >
                       <StreamerCard
+                        link={e.url}
                         title={
                           e.title.length > 45
                             ? e.title.slice(0, 45) + "..."
@@ -84,11 +91,16 @@ export default function Home() {
                         streamername={e.userDisplayName}
                         viewers={e.viewers}
                         profileimage={e.user.profile_image_url}
-                        thumbnail={e.thumbnailUrl.replace("{width}", "1280").replace("{height}","720")}
+                        thumbnail={e.thumbnailUrl
+                          .replace("{width}", "1280")
+                          .replace("{height}", "720")}
                       />
                     </div>
                   );
                 })}
+                <div className="flex justify-center items-center m-4 border-2 rounded">
+                  <h1 className="text-4xl">See more on <a href="https://www.twitch.tv/directory/category/euro-truck-simulator-2/" className="text-[#bf94f0] italic">TWITCH</a></h1>
+                </div>
               </div>
             </div>
           </div>
