@@ -1,18 +1,25 @@
+import { Link } from "react-router-dom";
+
 export default function Navbar() {
   return (
-    <div className="relative bg-[#2a3748] w-96 h-screen flex justify-center items-center border-r-8 border-slate-500 text-xl">
-      <div className="text-center h-full font-bold">
-        <div className="h-1/4 w-48 flex justify-center items-center">
-          <h1 className="bg-slate-500 flex justify-center items-center h-[20%] w-[100%] rounded-xl">Home</h1>
+    <div>
+      <div className="flex justify-between items-center pl-8 pt-8  bg-[#34465a] h-36 font-bold border-b-2 border-slate-500">
+        <div className="">
+          <h1 className="text-6xl">hunTrucker</h1>
+          <h2 className="text-xl italic font-medium">
+            A TruckerMP stats tracker
+          </h2>
         </div>
-        <div className="h-1/4 w-48 flex justify-center items-center">
-          <h1 className="bg-slate-500 flex justify-center items-center h-[20%] w-[100%] rounded-xl">Players</h1>
-        </div>
-        <div className="h-1/4 w-48 flex justify-center items-center">
-          <h1 className="bg-slate-500 flex justify-center items-center h-[20%] w-[100%] rounded-xl">VTC</h1>
-        </div>
-        <div className="h-1/4 w-48 flex justify-center items-center">
-          <h1 className="bg-slate-500 flex justify-center items-center h-[20%] w-[100%] rounded-xl">About</h1>
+        <div className="w-1/4 flex font-medium text-xl uppercase">
+          <Link to="/Players" className="mx-10">
+            Players
+          </Link>
+          <Link to="/VTC" className="mx-10">
+            Vtc
+          </Link>
+          <Link to="/About" className="mx-10">
+            About
+          </Link>
         </div>
       </div>
     </div>
