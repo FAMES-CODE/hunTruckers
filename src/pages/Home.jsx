@@ -31,7 +31,7 @@ export default function Home() {
 
   if (data.length > 0 && streamers.length > 0) {
     return (
-      <div className="flex text-white ">
+      <div className=" text-white ">
         <div className=" bg-[#2d3e4e] w-full h-full">
           <Navbar />
 
