@@ -81,7 +81,7 @@ export default function Home() {
                         }
                         streamername={e.userDisplayName}
                         viewers={e.viewers}
-                        profileimage={e.user.profile_image_url}
+                        profileimage={e.user ? (e.user.profile_image_url) : "noimg"}
                         thumbnail={e.thumbnailUrl
                           .replace("{width}", "1280")
                           .replace("{height}", "720")}
