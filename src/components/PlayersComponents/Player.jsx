@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
+const baseURL = process.env.serverBaseURL;
 function Player() {
   var pid = useParams().pid;
   const [pdata, setpdata] = useState([]);
 
   useEffect(() => {
-    let data = fetch("http://127.0.0.1:8888/player/get/" + pid)
+    let data = fetch(baseURL + "/player/get/" + pid)
       .then((response) => response.json())
       .then((data) => setpdata(data))
       .catch((e) => {

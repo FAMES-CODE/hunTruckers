@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import Card from "../components/Card";
 import Navbar from "./../components/navbar";
 import StreamerCard from "./../components/StreamerCard";
-
+const baseURL = process.env.serverBaseURL;
 export default function Home() {
   const [data, setData] = useState([]);
   const [streamers, setStreamers] = useState([]);
 
   useEffect(() => {
-    let data = fetch("http://127.0.0.1:8888/server")
+    let data = fetch(baseURL + "/server")
       .then((response) => response.json())
       .then((data) => {
         setData(data);
@@ -81,7 +81,9 @@ export default function Home() {
                         }
                         streamername={e.userDisplayName}
                         viewers={e.viewers}
-                        profileimage={e.user ? (e.user.profile_image_url) : "noimg"}
+                        profileimage={
+                          e.user ? e.user.profile_image_url : "noimg"
+                        }
                         thumbnail={e.thumbnailUrl
                           .replace("{width}", "1280")
                           .replace("{height}", "720")}
