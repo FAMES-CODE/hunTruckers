@@ -1,28 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-const baseURL = process.env.serverBaseURL;
+import Playerapi from "./../../api/player";
+import VtcExperience from "./VtcExperience";
+import CurrentPlayerVtc from "./CurrentPlayerVtc";
+import PlayerPermission from './PlayerPermission';
+
 function Player() {
   var pid = useParams().pid;
   const [pdata, setpdata] = useState([]);
 
   useEffect(() => {
-    let data = fetch(baseURL + "/player/get/" + pid)
-      .then((response) => response.json())
-      .then((data) => setpdata(data))
-      .catch((e) => {
-        console.error(e);
-      });
+    Playerapi(pid, setpdata);
   }, []);
+
   if (pdata) {
     return (
       <div className="flex-col">
         <div>
           {pdata
-            ? pdata.map((e, key) => {
-                console.log(e);
-
+            ? pdata.map((e) => {
                 return (
-                  <div key={key} className="flex-col px-24 w-[70vw] ">
+                  <div key={e.response.id} className="flex-col px-24 w-[70vw] ">
                     <div className="flex-col justify-center items-center bg-[#34465a] rounded-lg">
                       <div
                         className=" bg-center bg-no-repeat rounded-t-lg px-8 p-6"
@@ -46,30 +44,25 @@ function Player() {
                           >
                             {e.response.groupName}
                           </h2>
-                          <div className="mt-2 flex items-center text-base gap-4 w-full">
-                            <h3 className="font-bold text-red-600 uppercase bg-black/20 rounded-md px-8">
-                              {e.response.permissions.isStaff ? "Staff" : ""}
-                            </h3>
-                            <h3 className="font-bold text-red-600 uppercase bg-black/20 rounded-md px-8">
-                              {e.response.permissions.isManagement
-                                ? "Management"
-                                : ""}
-                            </h3>
-                            <h3 className="font-bold text-red-600 uppercase bg-black/20 rounded-md px-8">
-                              {e.response.permissions.isGameAdmin
-                                ? "Game Admin"
-                                : ""}
-                            </h3>
-                          </div>
-                          <h3 className="mt-2 font-thinc text-base text-[#8e8f92]">
+                          <h3 className="mt-2 font-thinc text-xl text-[#8e8f92]">
                             Member since : {e.response.joinDate.split(" ", 1)}
                           </h3>
+
+                          <div className="mt-2 flex items-center text-base gap-4 w-full">
+                            
+                            {e.response.permissions.isStaff ?  <PlayerPermission props="Staff" />  : ""}
+                            {e.response.permissions.isManagement ? <PlayerPermission props="Management" /> : ""}
+                            {e.response.permissions.isGameAdmin ? <PlayerPermission props="Game Admin" /> : ""}
+                
+                          </div>
+                         
+                          <a href={`https://truckersmp.com/user/` + e.response.id} className="bg-[#71b7fb] rounded-full p-3 text-lg text-black font-bold mt-4 inline-block">TruckersMP Profil</a>
                         </div>
                         <div>
                           {e.response.vtc.inVTC == true ? (
-                            <h1 className="font-light text-3xl">
-                              {e.response.vtc.name}{" "}
-                            </h1>
+                            <div className="font-light text-xl">
+                              <CurrentPlayerVtc vtcid={e.response.vtc.id} />
+                            </div>
                           ) : (
                             ""
                           )}
@@ -79,22 +72,13 @@ function Player() {
                     <div className="bg-[#34465a] rounded-lg py-8 mt-8 ">
                       {e.response.displayVTCHistory == true ? (
                         <div className=" px-8 ">
-                          <h1 className="text-4xl">Experience</h1>
+                          <h1 className="text-4xl mb-8">Experience</h1>
                           <div className="relative">
                             {e.response.vtcHistory.map((e) => {
                               return (
-                                <div className=" py-2 flex items-start gap-8">
-                                  <div>IMG</div>
-                                  <div className="">
-                                    <h1 className="text-3xl">{e.name}</h1>
-                                    <div className="text-[#97989a]">
-                                    <h1>Left {e.leftDate.split("T", 1)}</h1>
-                                    <h1>Join {e.joinDate.split(" ", 1)}</h1>
-                                    </div>
-                                      
-                                    <hr className="absolute w-[90%]" />
-                                  </div>
-                                </div>
+                                <a href={`/vtc/${e.id}`}>
+                                  <VtcExperience e={e} key={e.id} />
+                                </a>
                               );
                             })}
                           </div>
