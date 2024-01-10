@@ -1,5 +1,5 @@
 const baseURL = process.env.serverBaseURL;
-function Playerapi(pid, setpdata) {
+function GetonePlayerInfo(pid, setpdata) {
   let data = fetch(baseURL + "/player/get/" + pid)
     .then((response) => response.json())
     .then((data) => setpdata(data))
@@ -8,4 +8,4 @@ function Playerapi(pid, setpdata) {
     });
 }
 
-export default Playerapi;
+export default GetonePlayerInfo;

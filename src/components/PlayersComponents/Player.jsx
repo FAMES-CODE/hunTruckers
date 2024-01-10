@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Playerapi from "./../../api/player";
+import GetonePlayerInfo from "./../../api/player";
 import VtcExperience from "./VtcExperience";
 import CurrentPlayerVtc from "./CurrentPlayerVtc";
 import PlayerPermission from './PlayerPermission';
@@ -10,7 +10,7 @@ function Player() {
   const [pdata, setpdata] = useState([]);
 
   useEffect(() => {
-    Playerapi(pid, setpdata);
+    GetonePlayerInfo(pid, setpdata);
   }, []);
 
   if (pdata) {
@@ -20,7 +20,7 @@ function Player() {
           {pdata
             ? pdata.map((e) => {
                 return (
-                  <div key={e.response.id} className="flex-col px-24 w-[70vw] ">
+                  <div key={e.response.id} className="flex-col lg:px-24  lg:w-[70vw] ">
                     <div className="flex-col justify-center items-center bg-[#34465a] rounded-lg">
                       <div
                         className=" bg-center bg-no-repeat rounded-t-lg px-8 p-6"
@@ -32,7 +32,7 @@ function Player() {
                         <img
                           src={e.response.avatar}
                           alt=""
-                          className="relative rounded-full w-1/4 border-4 border-[#34465a] top-20 "
+                          className="relative bg-[#34465a] rounded-full w-1/2 lg:w-1/4 border-8 border-[#34465a] top-20 "
                         />
                       </div>
 
@@ -48,7 +48,7 @@ function Player() {
                             Member since : {e.response.joinDate.split(" ", 1)}
                           </h3>
 
-                          <div className="mt-2 flex items-center text-base gap-4 w-full">
+                          <div className="mt-2 lg:flex items-center text-base lg:gap-4  lg:w-full">
                             
                             {e.response.permissions.isStaff ?  <PlayerPermission props="Staff" />  : ""}
                             {e.response.permissions.isManagement ? <PlayerPermission props="Management" /> : ""}
@@ -56,7 +56,7 @@ function Player() {
                 
                           </div>
                          
-                          <a href={`https://truckersmp.com/user/` + e.response.id} className="bg-[#71b7fb] rounded-full p-3 text-lg text-black font-bold mt-4 inline-block">TruckersMP Profil</a>
+                          <a href={`https://truckersmp.com/user/` + e.response.id} className="bg-[#71b7fb] rounded-full py-2 lg:py-3 px-4 lg:px-6  text-lg text-black font-bold mt-2 lg:mt-4 inline-block">TruckersMP Profil</a>
                         </div>
                         <div>
                           {e.response.vtc.inVTC == true ? (
@@ -69,24 +69,29 @@ function Player() {
                         </div>
                       </div>
                     </div>
-                    <div className="bg-[#34465a] rounded-lg py-8 mt-8 ">
+                    <div className="bg-[#34465a] rounded-lg py-8 mt-8  ">
                       {e.response.displayVTCHistory == true ? (
-                        <div className=" px-8 ">
+                        <div className=" px-8 mb-8 ">
                           <h1 className="text-4xl mb-8">Experience</h1>
                           <div className="relative">
-                            {e.response.vtcHistory.map((e) => {
+                            {e.response.vtcHistory.length > 0 ? e.response.vtcHistory.map((e) => {
                               return (
                                 <a href={`/vtc/${e.id}`}>
                                   <VtcExperience e={e} key={e.id} />
                                 </a>
                               );
-                            })}
+                            }) : (
+                              <div>
+                                <h1>No Experience</h1>
+                              </div>
+                            )}
                           </div>
                         </div>
                       ) : (
                         <div></div>
                       )}
                     </div>
+                    
                   </div>
                 );
               })

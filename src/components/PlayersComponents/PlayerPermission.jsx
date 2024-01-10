@@ -1,12 +1,9 @@
 import React from "react";
 
-function PlayerPermission({props}) {
-   
+function PlayerPermission({ props }) {
   return (
-    <div>
-      <h3 className=" uppercase bg-black/30 px-8 text-[#71b7fb] rounded-full p-3 text-md">
-      {props}
-      </h3>
+    <div className="uppercase bg-black/30  lg:px-8 text-[#71b7fb] rounded-full py-3 text-sm lg:text-md mb-2 lg:mb-0">
+      <h3 className="text-center">{props}</h3>
     </div>
   );
 }
