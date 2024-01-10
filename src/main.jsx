@@ -6,7 +6,7 @@ import { Home, Players, Vtc } from "./pages";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  
+  <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -15,5 +15,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/vtc" element={<Vtc />} />
       </Routes>
     </BrowserRouter>
-   
+  </React.StrictMode>
 );
