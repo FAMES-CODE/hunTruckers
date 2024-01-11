@@ -13,6 +13,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/Players" element={<Players />} />
         <Route path="/Players/:pid" element={<Players />} />
         <Route path="/vtc" element={<Vtc />} />
+        <Route path="/vtc/:vtcid" element={<Vtc />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
