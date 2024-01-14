@@ -13,6 +13,7 @@ function VtcExperience({ e }) {
         console.error(e);
       });
   }, []);
+
   if (vtcData.length > 0) {
     return (
       <div
@@ -26,6 +27,7 @@ function VtcExperience({ e }) {
             </div>
           );
         })}
+
         <div className="w-full">
           <div className="flex items-center gap-2 ">
             <h1 className="text-3xl">{e.name}</h1>

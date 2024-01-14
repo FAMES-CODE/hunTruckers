@@ -37,6 +37,7 @@ export default function Home() {
 
           {/* Main */}
           <div className="px-8 pt-8">
+            {/* Server stats section */}
             <div className="sm:flex justify-between">
               {data.map((e, key) => {
                 if (
@@ -59,6 +60,7 @@ export default function Home() {
             </div>
 
             <div className="flex-col mt-16">
+              {/* Twitch streamers section */}
               <div>
                 <h1 className="font-bold text-2xl">
                   Streamers playing ETS2 on{" "}

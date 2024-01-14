@@ -18,6 +18,8 @@ function VtcPage() {
         {vtcdata.map((e) => {
           return (
             <div className="">
+              {/* VTC Profil */}
+
               <div className="bg-[#34465a] rounded-lg">
                 <div
                   className="relative h-96 rounded-lg bg-no-repeat bg-contain"
@@ -29,7 +31,10 @@ function VtcPage() {
                     alt=""
                   />
                 </div>
+
                 <div className="flex justify-between items-center w-full px-20 mt-8 pb-8">
+                  {/* Left side */}
+
                   <div>
                     <div className="flex items-center">
                       <h1 className="font-bold text-4xl">{e.response.name}</h1>
@@ -37,9 +42,12 @@ function VtcPage() {
                     </div>
                     <h1 className="text-xl italic">{e.response.slogan}</h1>
                   </div>
+
+                  {/* Right side */}
+
                   <div>
                     <h1>
-                      Owned by :{" "}
+                      Owned by :
                       <a
                         href={`../players/${e.response.owner_id}`}
                         className="text-xl italic"
@@ -57,6 +65,7 @@ function VtcPage() {
                 </div>
               </div>
 
+              {/* VTC Game */}
               <div className="bg-[#34465a] rounded-lg mt-8 px-20 py-8">
                 <h1 className="text-center text-2xl ">VTC Games</h1>
                 <div className="flex justify-around pt-8 uppercase font-bold">
@@ -88,16 +97,6 @@ function VtcPage() {
               <div className="flex justify-around mt-8 px-20 py-8 gap-20">
                 <div className="bg-[#34465a] rounded-lg px-20 py-8  w-full">
                   <h1 className="text-center">Socials</h1>
-                  <div>
-                    {Object.entries(e.response.socials).map((social) => {
-                      return (
-                        <VtcSocials
-                          SocialName={social[0]}
-                          SocialLink={social[1]}
-                        />
-                      );
-                    })}
-                  </div>
                 </div>
                 <div className="bg-[#34465a] rounded-lg px-20 py-8 text-center w-full">
                   <h1>VTC Members</h1>
