@@ -4,7 +4,6 @@ import GetOneVtcInfo from "../../api/vtc";
 import VtcGame from "./VtcGame";
 import VtcSocials from "./VtcSocials";
 
-
 function VtcPage() {
   const vtcid = useParams().vtcid;
   const [vtcdata, setvtcdata] = useState([]);
@@ -16,7 +15,6 @@ function VtcPage() {
     return (
       <div>
         {vtcdata.map((e) => {
-          console.log(e)
           return (
             <div className="">
               {/* VTC Profil */}
@@ -93,7 +91,7 @@ function VtcPage() {
                   >
                     <VtcGame
                       GameName={
-                        e.response.games.ets ? "Euro Truck Simulator" : ""
+                        e.response.games.ets ? "Euro Truck Simulator 2" : ""
                       }
                     />
                   </div>
@@ -114,7 +112,11 @@ function VtcPage() {
       </div>
     );
   } else {
-    return <div><h1>Loading . . . </h1></div>;
+    return (
+      <div>
+        <h1>Loading . . . </h1>
+      </div>
+    );
   }
 }
 

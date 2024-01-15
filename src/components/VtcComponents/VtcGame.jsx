@@ -10,7 +10,7 @@ function VtcGame({ GameName }) {
   return (
     <div className="flex items-center">
       <img
-        src={GameName == "Euro Truck Simulator" ? etsLogo : atsLogo}
+        src={GameName == "Euro Truck Simulator 2" ? etsLogo : atsLogo}
         alt=""
         className="w-[128px]"
       />
