@@ -4,6 +4,7 @@ import GetonePlayerInfo from "./../../api/player";
 import VtcExperience from "./VtcExperience";
 import CurrentPlayerVtc from "./CurrentPlayerVtc";
 import PlayerPermission from "./PlayerPermission";
+import Loading from "./../Loading";
 
 function Player() {
   var pid = useParams().pid;
@@ -12,8 +13,8 @@ function Player() {
   useEffect(() => {
     GetonePlayerInfo(pid, setpdata);
   }, []);
-
-  if (pdata) {
+  console.log(pdata);
+  if (pdata && Array.isArray(pdata)) {
     return (
       <div className="flex-col">
         <div>
@@ -96,7 +97,7 @@ function Player() {
                       </div>
                     </div>
 
-                    {/* VTC History */}
+                    {/* Player VTC History */}
                     <div className="bg-[#34465a] rounded-lg py-8 mt-8  ">
                       {e.response.displayVTCHistory == true ? (
                         <div className=" px-8 mb-8 ">
@@ -129,7 +130,11 @@ function Player() {
       </div>
     );
   } else {
-    return <div>Loading</div>;
+    return (
+      <div className="flex justify-center items-center h-96 font-bold uppercase text-4xl">
+        <h1>User not found</h1>
+      </div>
+    );
   }
 }
 

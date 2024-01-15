@@ -4,6 +4,7 @@ import GetOneVtcInfo from "../../api/vtc";
 import VtcGame from "./VtcGame";
 import VtcSocials from "./VtcSocials";
 
+
 function VtcPage() {
   const vtcid = useParams().vtcid;
   const [vtcdata, setvtcdata] = useState([]);
@@ -11,7 +12,6 @@ function VtcPage() {
     GetOneVtcInfo(vtcid, setvtcdata);
   }, []);
 
-  console.log(vtcdata);
   if (vtcdata.length > 0) {
     return (
       <div>
@@ -108,7 +108,7 @@ function VtcPage() {
       </div>
     );
   } else {
-    return "Loading";
+    return <div><h1>Loading . . . </h1></div>;
   }
 }
 

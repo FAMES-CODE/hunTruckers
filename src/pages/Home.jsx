@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import Card from "../components/Card";
 import Navbar from "./../components/navbar";
 import StreamerCard from "./../components/StreamerCard";
+import Loading from "./../components/Loading";
+
 const baseURL = process.env.serverBaseURL;
 export default function Home() {
   const [data, setData] = useState([]);
@@ -102,6 +104,10 @@ export default function Home() {
       </div>
     );
   } else {
-    return <div>Loading</div>;
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
   }
 }
