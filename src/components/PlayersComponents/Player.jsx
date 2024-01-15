@@ -5,23 +5,23 @@ import VtcExperience from "./VtcExperience";
 import CurrentPlayerVtc from "./CurrentPlayerVtc";
 import PlayerPermission from "./PlayerPermission";
 import Loading from "./../Loading";
-import RandomUser from './RandomUser';
-import SuggestedProfiles from './SuggestedProfiles';
+import RandomUser from "./RandomUser";
+import SuggestedProfiles from "./SuggestedProfiles";
 
 function Player() {
   var pid = useParams().pid;
   const [pdata, setpdata] = useState([]);
-
   useEffect(() => {
     GetonePlayerInfo(pid, setpdata);
   }, []);
-  console.log(pdata);
+
   if (pdata && Array.isArray(pdata)) {
     return (
       <div className="flex flex-col lg:flex-row">
         <div>
           {pdata
             ? pdata.map((e) => {
+                document.title = e.response.name;
                 return (
                   <div
                     key={e.response.id}
@@ -138,20 +138,20 @@ function Player() {
           <div className="bg-[#34465a] p-8 rounded-lg ">
             <h1 className="font-bold text-3xl">You may also know</h1>
             <div className="">
-            {(() => {
-            function randomIntFromInterval(min, max) {
-              return Math.floor(Math.random() * (max - min + 1) + min);
-            }
+              {(() => {
+                function randomIntFromInterval(min, max) {
+                  return Math.floor(Math.random() * (max - min + 1) + min);
+                }
 
-            const nb = randomIntFromInterval(1, 5354137);
-            const elements = [];
+                const nb = randomIntFromInterval(1, 5354137);
+                const elements = [];
 
-            for (let index = nb - 5; index < nb; index++) {
-              // We push SuggestedProfiles component into an array ( elements[] ) and then we ' render ' the array elements
-              elements.push(<SuggestedProfiles pid={index} />);
-            }
-            return elements;
-          })()}
+                for (let index = nb - 5; index < nb; index++) {
+                  // We push SuggestedProfiles component into an array ( elements[] ) and then we ' render ' the array elements
+                  elements.push(<SuggestedProfiles pid={index} />);
+                }
+                return elements;
+              })()}
             </div>
           </div>
         </div>

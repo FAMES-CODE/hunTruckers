@@ -30,7 +30,7 @@ export default function Home() {
         console.error(error);
       });
   }, []);
-
+  document.title = "Home";
   if (data.length > 0 && streamers.length > 0) {
     return (
       <div className=" text-white ">

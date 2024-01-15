@@ -9,6 +9,7 @@ function Index() {
     e.preventDefault();
     navigate(inputRef.current.value);
   };
+  document.title = "Players";
   return (
     <div className="h-full lg:flex justify-around items-start">
       <div className="bg-[#34465a] p-8 lg:w-2/4 rounded-lg">

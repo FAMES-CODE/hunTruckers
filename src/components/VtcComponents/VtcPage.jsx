@@ -15,6 +15,7 @@ function VtcPage() {
     return (
       <div>
         {vtcdata.map((e) => {
+          document.title = e.response.name;
           return (
             <div className="">
               {/* VTC Profil */}

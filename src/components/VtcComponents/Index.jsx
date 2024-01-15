@@ -21,6 +21,7 @@ function Index() {
     e.preventDefault();
     navigate(vtcRef.current.value);
   };
+  document.title = "VTC";
   if (vtcs.length > 0) {
     return (
       <div className="">
