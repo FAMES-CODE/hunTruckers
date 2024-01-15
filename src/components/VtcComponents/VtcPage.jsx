@@ -23,17 +23,22 @@ function VtcPage() {
 
               <div className="bg-[#34465a] rounded-lg">
                 <div
-                  className="relative h-96 rounded-lg bg-no-repeat bg-center"
+                  className="relative h-96 bg-no-repeat bg-cover rounded-t-lg "
                   style={{ backgroundImage: `url(${e.response.cover})` }}
                 >
                   <img
                     src={e.response.logo}
-                    className="absolute bottom-0 left-20"
+                    className="absolute bottom-[-15vh] left-[42%] rounded-full blur-2xl"
+                    alt=""
+                  />
+                  <img
+                    src={e.response.logo}
+                    className="absolute bottom-[-15vh] left-[42%] rounded-full "
                     alt=""
                   />
                 </div>
 
-                <div className="flex justify-between items-center w-full px-20 mt-8 pb-8">
+                <div className="flex justify-between items-center w-full px-20 mt-16 pb-8">
                   {/* Left side */}
 
                   <div>
