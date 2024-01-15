@@ -16,13 +16,14 @@ function VtcPage() {
     return (
       <div>
         {vtcdata.map((e) => {
+          console.log(e)
           return (
             <div className="">
               {/* VTC Profil */}
 
               <div className="bg-[#34465a] rounded-lg">
                 <div
-                  className="relative h-96 rounded-lg bg-no-repeat bg-contain"
+                  className="relative h-96 rounded-lg bg-no-repeat bg-center"
                   style={{ backgroundImage: `url(${e.response.cover})` }}
                 >
                   <img

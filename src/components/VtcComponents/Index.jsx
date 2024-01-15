@@ -38,7 +38,7 @@ function Index() {
         <h1 className="text-center text-4xl font-bold my-16">Recent VTC</h1>
         <div className="bg-[#34465a] mt-8 lg:mt-0 p-8 lg:w-full rounded-lg">
           <div className="grid grid-cols-1  gap-10 justify-around ">
-            {vtcs.length > 50 ? vtcs.map((e) => {
+            {vtcs.length > 0 ? vtcs.map((e) => {
               return <RecentVtc props={e} />;
             }) : <div className=""><h1>Loading . . . </h1></div>}
           </div>
