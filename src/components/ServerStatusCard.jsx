@@ -1,8 +1,8 @@
-export default function Card({ servername, state, players, maxplayers }) {
+export default function ServerStatusCard({ props }) {
   return (
     <div className="flex gap-12 items-center shadow shadow-slate-500 bg-[#34465a] mx-8 p-8 rounded-xl">
       <div>
-        {state == "true" ? (
+        {props.online ? (
           <div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -30,8 +30,8 @@ export default function Card({ servername, state, players, maxplayers }) {
       </div>
 
       <div>
-        <h1 className="text-xl font-bold">{servername}</h1>
-        <h2 className="italic">{players} / {maxplayers}</h2>
+        <h1 className="text-xl font-bold">{props.shortname} | {props.name} {props.game}</h1>
+        <h2 className="italic">{props.players} / {props.maxplayers}</h2>
       </div>
     </div>
   );

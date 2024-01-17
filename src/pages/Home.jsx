@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Card from "../components/Card";
+import ServerStatusCard from "../components/ServerStatusCard";
 import Navbar from "./../components/navbar";
 import StreamerCard from "./../components/StreamerCard";
 import Loading from "./../components/Loading";
@@ -49,11 +49,8 @@ export default function Home() {
                 ) {
                   return (
                     <div className="mt-4 sm:w-1/3" key={key}>
-                      <Card
-                        servername={`${e.shortname} | ${e.name} (${e.game})`}
-                        state={`${e.online}`}
-                        players={`${e.players}`}
-                        maxplayers={`${e.maxplayers}`}
+                      <ServerStatusCard
+                        props={e}
                       />
                     </div>
                   );
@@ -76,22 +73,7 @@ export default function Home() {
                       className="flex justify-center items-center m-4"
                       key={key}
                     >
-                      <StreamerCard
-                        link={e.url}
-                        title={
-                          e.title.length > 45
-                            ? e.title.slice(0, 45) + "..."
-                            : e.title
-                        }
-                        streamername={e.userDisplayName}
-                        viewers={e.viewers}
-                        profileimage={
-                          e.user ? e.user.profile_image_url : "noimg"
-                        }
-                        thumbnail={e.thumbnailUrl
-                          .replace("{width}", "1280")
-                          .replace("{height}", "720")}
-                      />
+                      <StreamerCard props={e} />
                     </div>
                   );
                 })}
