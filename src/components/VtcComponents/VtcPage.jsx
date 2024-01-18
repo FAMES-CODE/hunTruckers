@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import GetOneVtcInfo from "../../api/vtc";
 import VtcGame from "./VtcGame";
 import VtcSocials from "./VtcSocials";
+import VtcMember from "./VtcMember";
 
 function VtcPage() {
   const vtcid = useParams().vtcid;
@@ -101,11 +102,11 @@ function VtcPage() {
               </div>
 
               <div className="flex justify-around mt-8 px-20 py-8 gap-20">
-                <div className="bg-[#34465a] rounded-lg px-20 py-8  w-full">
+                <div className="bg-[#34465a] rounded-lg px-20 py-8  w-1/2">
                   <h1 className="text-center">Socials</h1>
                 </div>
-                <div className="bg-[#34465a] rounded-lg px-20 py-8 text-center w-full">
-                  <h1>VTC Members</h1>
+                <div className="bg-[#34465a] rounded-lg px-2 py-8 text-center w-full overflow-auto max-h-96">
+                   <VtcMember VtcId={vtcid}/>
                 </div>
               </div>
             </div>
