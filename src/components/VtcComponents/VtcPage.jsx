@@ -101,11 +101,11 @@ function VtcPage() {
                 </div>
               </div>
 
-              <div className="flex justify-around mt-8 px-20 py-8 gap-20">
-                <div className="bg-[#34465a] rounded-lg px-20 py-8  w-1/2">
-                   <VtcSocials />
+              <div className="flex flex-col justify-around mt-8  py-8 gap-20">
+                <div className="bg-[#34465a] rounded-lg mx-20 py-8  ">
+                   <VtcSocials props={e.response.socials}/>
                 </div>
-                <div className="bg-[#34465a] rounded-lg px-2 py-8 text-center w-full overflow-auto max-h-96">
+                <div className="bg-[#34465a] rounded-lg px-20 py-8 w-full overflow-auto max-h-96">
                    <VtcMember VtcId={vtcid}/>
                 </div>
               </div>
