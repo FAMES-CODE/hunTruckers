@@ -1,7 +1,6 @@
 import React from "react";
 
 function VtcSocials({ props }) {
-  console.log(Object(props));
   return (
     <div className="flex justify-around w-full">
       {Object.entries(props).map(([socialName, socialLink], i) => {

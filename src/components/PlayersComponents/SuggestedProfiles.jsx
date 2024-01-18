@@ -11,7 +11,6 @@ function SuggestedProfiles({ pid }) {
     return (
       <div>
         {playerdata.map((e) => {
-          console.log(e);
           return (
             <div className="hover:bg-[#5b7a9e69] rounded-lg p-2">
               <a href={`../Players/` + e.response.id}>
