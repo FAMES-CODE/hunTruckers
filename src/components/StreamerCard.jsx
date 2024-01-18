@@ -28,7 +28,7 @@ export default function StreamerCard({ props }) {
           </div>
           <div className=" flex items-center gap-8 mt-2">
             <img
-              src={props.user.profile_image_url}
+              src={props.user ? props.user.profile_image_url  : "https://static-cdn.jtvnw.net/user-default-pictures-uv/cdd517fe-def4-11e9-948e-784f43822e80-profile_image-300x300.png"}
               alt="Streamer pp"
               className="w-16 rounded-ss-3xl"
             />

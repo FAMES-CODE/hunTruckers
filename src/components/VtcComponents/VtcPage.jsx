@@ -13,7 +13,7 @@ function VtcPage() {
     GetOneVtcInfo(vtcid, setvtcdata);
   }, []);
 
-  if (vtcdata.length > 0) {
+  if (vtcdata && Array.isArray(vtcdata)) {
     return (
       <div>
         {vtcdata.map((e) => {
