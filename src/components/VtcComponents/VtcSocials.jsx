@@ -1,9 +1,10 @@
 import React from "react";
 
-function VtcSocials({ LogoUrl, SocialName, SocialLink }) {
+function VtcSocials({ props }) {
+  console.log(props)
   return (
     <div>
-      <a href={SocialLink}>{SocialName}</a>
+      <a href={''}>SocialName</a>
     </div>
   );
 }

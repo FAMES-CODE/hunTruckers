@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 const baseUrl = process.env.serverBaseURL;
 function VtcMember({ VtcId }) {
   const [membersdata, setmembersdata] = useState([]);
-  console.log(VtcId);
   useEffect(() => {
     let data = fetch(baseUrl + "/vtc/members/" + VtcId)
       .then((response) => response.json())
