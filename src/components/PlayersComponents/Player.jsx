@@ -4,34 +4,30 @@ import GetonePlayerInfo from "./../../api/player";
 import VtcExperience from "./VtcExperience";
 import CurrentPlayerVtc from "./CurrentPlayerVtc";
 import PlayerPermission from "./PlayerPermission";
-import Loading from "./../Loading";
-import RandomUser from "./RandomUser";
 import SuggestedProfiles from "./SuggestedProfiles";
 
 function Player() {
   var pid = useParams().pid;
   const [pdata, setpdata] = useState([]);
+
   useEffect(() => {
     GetonePlayerInfo(pid, setpdata);
   }, []);
 
   if (pdata && Array.isArray(pdata)) {
     return (
-      <div className="flex flex-col lg:flex-row">
+      <div className="flex gap-20  justify-between flex-col lg:flex-row pb-8 lg:px-24">
         <div>
           {pdata
             ? pdata.map((e) => {
                 document.title = e.response.name;
                 return (
-                  <div
-                    key={e.response.id}
-                    className="flex-col lg:px-24  lg:w-[70vw] "
-                  >
+                  <div key={e.response.id} className="  lg:w-[60vw]">
                     {/* Top section */}
 
-                    <div className="flex-col justify-center items-center bg-[#34465a] rounded-lg">
+                    <div className="bg-[#34465a] rounded-lg">
                       <div
-                        className=" bg-center bg-no-repeat rounded-t-lg px-8 p-6"
+                        className=" bg-center bg-no-repeat rounded-t-lg lg:px-8 p-6"
                         style={{
                           backgroundImage:
                             "url(https://i.imgur.com/0BDU0q9.jpg)",
@@ -44,11 +40,10 @@ function Player() {
                         />
                       </div>
 
-                      <div className="flex justify-between text-4xl mt-12 px-8 p-6">
+                      <div className="flex lg:justify-around text-4xl mx-5 lg:mx-0 mt-12 lg:px-8 py-6">
                         {/* Left side */}
-
-                        <div className="">
-                          <h1 className="mt-2 font-bold ">{e.response.name}</h1>
+                        <div className="w-full">
+                          <h1 className="mt-2 font-bold">{e.response.name}</h1>
                           <h2
                             className={`mt-2 font-medium text-2xl italic `}
                             style={{ color: e.response.groupColor }}
@@ -59,7 +54,7 @@ function Player() {
                             Member since : {e.response.joinDate.split(" ", 1)}
                           </h3>
 
-                          <div className="mt-2 lg:flex items-center text-base lg:gap-4  lg:w-full">
+                          <div className="mt-2 lg:flex items-center text-base lg:gap-4 lg:w-full">
                             {e.response.permissions.isStaff ? (
                               <PlayerPermission props="Staff" />
                             ) : (
@@ -88,7 +83,7 @@ function Player() {
                         </div>
 
                         {/* Right side of profile */}
-                        <div>
+                        <div className=" w-full lg:w-1/4">
                           {e.response.vtc.inVTC == true ? (
                             <div className="font-light text-xl">
                               <CurrentPlayerVtc vtcid={e.response.vtc.id} />
@@ -101,7 +96,7 @@ function Player() {
                     </div>
 
                     {/* Player VTC History */}
-                    <div className="bg-[#34465a] rounded-lg py-8 mt-8  ">
+                    <div className="bg-[#34465a] rounded-lg py-8 mt-16  ">
                       {e.response.displayVTCHistory == true ? (
                         <div className=" px-8 mb-8 ">
                           <h1 className="text-4xl mb-8">Experience</h1>
@@ -134,8 +129,8 @@ function Player() {
         {/*
         Suggested profiles section
         */}
-        <div className="mt-8 lg:mt-0">
-          <div className="bg-[#34465a] p-8 rounded-lg ">
+        <div className="mt-0 lg:w-1/4 ">
+          <div className="bg-[#34465a] p-8 rounded-lg w-full">
             <h1 className="font-bold text-3xl">You may also know</h1>
             <div className="">
               {(() => {

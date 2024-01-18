@@ -7,7 +7,7 @@ function RandomUser({ pid }) {
   useEffect(() => {
     GetonePlayerInfo(pid, setpdata);
   }, []);
-
+ 
   if (pdata.length > 0) {
     return (
       <div>

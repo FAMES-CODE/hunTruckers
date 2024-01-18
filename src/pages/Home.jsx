@@ -70,13 +70,16 @@ export default function Home() {
                 {streamers.slice(0, 8).map((e, key) => {
                   return (
                     <div
-                      className="flex justify-center items-center m-4"
+                      className="flex justify-center items-center m-4 p-2 bg-[#34465a] rounded-xl shadow shadow-slate-500  hover:shadow-md hover:shadow-[#bf94f0]"
                       key={key}
                     >
                       <StreamerCard props={e} />
                     </div>
                   );
                 })}
+                <div className="flex justify-center items-center m-4 p-2  rounded-xl ">
+                  <a href="https://www.twitch.tv/directory/category/euro-truck-simulator-2" target="_blank" className="text-3xl">See more on <span className="text-[#bf94f0] italic">Twitch</span></a>
+                </div>
               </div>
             </div>
           </div>

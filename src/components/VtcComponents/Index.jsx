@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import RecentVtc from "./RecentVtc";
-import Loading from './../Loading';
 const baseURL = process.env.serverBaseURL;
 
 function Index() {

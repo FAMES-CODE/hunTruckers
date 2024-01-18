@@ -2,7 +2,7 @@ export default function StreamerCard({ props }) {
   if (props) {
     return (
       <a href={props.url} target="_blank">
-        <div className="p-2 bg-[#34465a] rounded-xl shadow shadow-slate-500  hover:shadow-md hover:shadow-[#bf94f0]">
+        <div className="">
           <div className="relative">
             <img
               src={props.thumbnailUrl

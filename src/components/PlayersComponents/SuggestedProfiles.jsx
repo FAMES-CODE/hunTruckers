@@ -22,7 +22,7 @@ function SuggestedProfiles({ pid }) {
                     className="w-1/4 border-2 rounded-full"
                   />
                   <div>
-                    <h1 className="font-bold text-2xl">{e.response.name}</h1>
+                    <h1 className="font-bold text-xl">{e.response.name}</h1>
                     <h1 className="font-bold text-md">
                       {e.response.vtc.name ? e.response.vtc.name : ""}
                     </h1>

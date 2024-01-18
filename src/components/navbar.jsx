@@ -11,16 +11,16 @@ export default function Navbar() {
           </h2>
         </div>
         <div className="lg:w-full flex font-medium uppercase justify-evenly lg:justify-end">
-          <Link to="/" className=" mt-4 text-sm lg:mx-14 lg:text-md">
+          <Link to="/" className="mt-4 text-sm lg:mx-14 lg:text-md">
             <HomeBtn />
           </Link>
-          <Link to="/Players" className=" mt-4 text-sm lg:mx-14 lg:text-md">
+          <Link to="/players" className="mt-4 text-sm lg:mx-14 lg:text-md">
             <PlayerBtn />
           </Link>
-          <Link to="/VTC" className=" mt-4 text-sm lg:mx-14 lg:text-md">
+          <Link to="/vtc" className="mt-4 text-sm lg:mx-14 lg:text-md">
             <VtcBtn />
           </Link>
-          <Link to="/About" className=" mt-4 text-sm lg:mx-14 lg:text-md">
+          <Link to="/about" className="mt-4 text-sm lg:mx-14 lg:text-md">
             <AboutBtn />
           </Link>
         </div>
@@ -31,7 +31,7 @@ export default function Navbar() {
 
 function HomeBtn() {
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center ">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         height="36"

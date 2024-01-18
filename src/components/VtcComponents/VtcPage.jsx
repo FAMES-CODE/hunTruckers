@@ -7,6 +7,7 @@ import VtcSocials from "./VtcSocials";
 function VtcPage() {
   const vtcid = useParams().vtcid;
   const [vtcdata, setvtcdata] = useState([]);
+
   useEffect(() => {
     GetOneVtcInfo(vtcid, setvtcdata);
   }, []);
@@ -15,7 +16,7 @@ function VtcPage() {
     return (
       <div>
         {vtcdata.map((e) => {
-          document.title = e.response.name;
+          document.title = e.response.name || "VTC";
           return (
             <div className="">
               {/* VTC Profil */}
@@ -114,8 +115,8 @@ function VtcPage() {
     );
   } else {
     return (
-      <div>
-        <h1>Loading . . . </h1>
+      <div className="flex justify-center items-center h-96 font-bold uppercase text-4xl">
+        <h1 className="">VTC Not found</h1>
       </div>
     );
   }
