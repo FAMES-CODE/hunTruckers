@@ -5,7 +5,7 @@ export default function Navbar() {
     <div className="text-white">
       <div className="lg:flex justify-between items-center  px-8  bg-[#34465a] h-28 font-bold border-b-2 border-slate-500">
         <div className="flex items-center justify-evenly lg:inline">
-          <h1 className="text-3xl lg:text-6xl">hunTrucker</h1>
+          <h1 className="text-3xl lg:text-6xl">hunTruckers</h1>
           <h2 className="text-sm lg:text-xl italic font-medium">
             A TruckersMP profile viewer
           </h2>
