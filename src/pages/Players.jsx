@@ -5,7 +5,7 @@ import Player from "./../components/PlayersComponents/Player";
 
 export default function User() {
   return (
-    <div className=" bg-[#2d3e4e]  text-white bg-cover bg-no-repeat ">
+    <div className="text-white bg-cover bg-no-repeat ">
       <Navbar />
       <div className="px-8 pt-8 bg-[#161f27] min-h-screen">
         {useParams().pid ? (

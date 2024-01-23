@@ -9,6 +9,7 @@ export default function Home() {
   const [data, setData] = useState([]);
   const [streamers, setStreamers] = useState([]);
 
+  // Get servers status
   useEffect(() => {
     let data = fetch(baseURL + "/server")
       .then((response) => response.json())
@@ -20,6 +21,7 @@ export default function Home() {
       });
   }, []);
 
+  // Get live stream on ETS2 from twitch
   useEffect(() => {
     let data = fetch("https://api.truckyapp.com/v2/streams/twitch/ets2")
       .then((response) => response.json())
@@ -34,12 +36,15 @@ export default function Home() {
   if (data.length > 0 && streamers.length > 0) {
     return (
       <div className=" text-white ">
-        <div className=" bg-[#2d3e4e] w-full h-full">
+        <div className="w-full h-full">
           <Navbar />
 
           {/* Main */}
           <div className="px-8 pt-8">
-            {/* Server stats section */}
+            {/* Server status section */}
+            <h1 className="text-2xl font-bold lg:text-left text-center">
+              Servers status
+            </h1>
             <div className="sm:flex justify-between">
               {data.map((e, key) => {
                 if (
@@ -49,16 +54,14 @@ export default function Home() {
                 ) {
                   return (
                     <div className="mt-4 sm:w-1/3" key={key}>
-                      <ServerStatusCard
-                        props={e}
-                      />
+                      <ServerStatusCard props={e} />
                     </div>
                   );
                 }
               })}
             </div>
 
-            <div className="flex-col mt-16">
+            <div className="mt-16">
               {/* Twitch streamers section */}
               <div>
                 <h1 className="font-bold text-2xl">
@@ -78,7 +81,14 @@ export default function Home() {
                   );
                 })}
                 <div className="flex justify-center items-center m-4 p-2  rounded-xl ">
-                  <a href="https://www.twitch.tv/directory/category/euro-truck-simulator-2" target="_blank" className="text-3xl">See more on <span className="text-[#bf94f0] italic">Twitch</span></a>
+                  <a
+                    href="https://www.twitch.tv/directory/category/euro-truck-simulator-2"
+                    target="_blank"
+                    className="text-3xl"
+                  >
+                    See more on{" "}
+                    <span className="text-[#bf94f0] italic">Twitch</span>
+                  </a>
                 </div>
               </div>
             </div>
