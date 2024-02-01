@@ -1,8 +1,18 @@
-# React + Vite
+# hunTruckers
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to hunTruckers, a simple yet powerful tool designed for
+trucking enthusiasts within the TruckersMP community. Our mini app
+focuses on providing easy access to player profiles and Virtual
+Trucking Company (VTC) information, enhancing your experience in the
+virtual trucking world.
 
-Currently, two official plugins are available:
+### Players Profiles
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Discover detailed information about TruckersMP players. hunTruckers
+provides a quick overview of your fellow virtual truckers.
+
+### VTC Directory
+
+Explore Virtual Trucking Companies and their members effortlessly.
+Find the right VTC that suits your preferences and connect with other
+players who share your passion.
