@@ -22,38 +22,59 @@ function VtcPage() {
             <div className="">
               {/* VTC Profil */}
 
-              <div className="bg-[#34465a] rounded-lg">
-                <div
-                  className="relative h-96 bg-no-repeat bg-cover rounded-t-lg "
-                  style={{ backgroundImage: `url(${e.response.cover})` }}
-                >
+              <div
+                className="relative min-h-96 bg-[#34465a] bg-no-repeat bg-center lg:bg-cover rounded-t-lg "
+                style={{ backgroundImage: `url(${e.response.cover})` }}
+              >
+                <div className="relative z-10 flex justify-center items-center  top-[30vh]  lg:top-[40vh] ">
                   <img
                     src={e.response.logo}
-                    className="absolute bottom-[-15vh] left-[42%] rounded-full blur-2xl"
+                    className="absolute rounded-full blur-3xl "
                     alt=""
                   />
                   <img
                     src={e.response.logo}
-                    className="absolute bottom-[-15vh] left-[42%] rounded-full "
+                    className="absolute rounded-full "
                     alt=""
                   />
                 </div>
+              </div>
 
-                <div className="flex justify-between items-center w-full px-20 mt-16 pb-8">
+              <div className="bg-[#34465a] rounded-b-lg h-full px-8 lg:px-20 py-8">
+                <div className=" flex justify-between items-center w-full ">
                   {/* Left side */}
 
                   <div>
-                    <div className="flex items-center">
-                      <h1 className="font-bold text-4xl">{e.response.name}</h1>
-                      {e.response.verified ? "verified logo" : ""}
+                    <div className="flex gap-4 items-end">
+                      <h1 className="font-bold text-xl lg:text-4xl">
+                        {e.response.name}
+                      </h1>
+                      {e.response.verified ? (
+                        <>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            height="30"
+                            width="30"
+                            viewBox="0 0 512 512"
+                          >
+                            <title>Verified</title>
+                            <path
+                              fill="#005eff"
+                              d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-111 111-47-47c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l64 64c9.4 9.4 24.6 9.4 33.9 0L369 209z"
+                            />
+                          </svg>
+                        </>
+                      ) : (
+                        ""
+                      )}
                     </div>
-                    <h1 className="text-xl italic">{e.response.slogan}</h1>
+                    <h1 className="lg:text-xl italic">{e.response.slogan}</h1>
                   </div>
 
                   {/* Right side */}
 
-                  <div>
-                    <h1>
+                  <div className="text-right">
+                    <h1 className="text-xl">
                       Owned by :
                       <a
                         href={`../players/${e.response.owner_id}`}
@@ -62,7 +83,7 @@ function VtcPage() {
                         {e.response.owner_username}
                       </a>
                     </h1>
-                    <h1 className="">
+                    <h1 className=" lg:text-xl italic">
                       VTC Language :{" "}
                       <span className="text-xl italic">
                         {e.response.language}
@@ -75,7 +96,7 @@ function VtcPage() {
               {/* VTC Game */}
               <div className="bg-[#34465a] rounded-lg mt-8 px-20 py-8">
                 <h1 className="text-center text-2xl ">VTC Games</h1>
-                <div className="flex justify-around pt-8 uppercase font-bold">
+                <div className="flex flex-col md:flex-row justify-around pt-8 uppercase font-bold">
                   <div
                     className={
                       !e.response.games.ats ? "grayscale text-gray-400" : ""
@@ -102,11 +123,11 @@ function VtcPage() {
               </div>
 
               <div className="flex flex-col justify-around mt-8  py-8 gap-20">
-                <div className="bg-[#34465a] rounded-lg mx-20 py-8  ">
-                   <VtcSocials props={e.response.socials}/>
+                <div className=" bg-[#34465a] rounded-lg mx-20 py-8  ">
+                  <VtcSocials props={e.response.socials} />
                 </div>
                 <div className="bg-[#34465a] rounded-lg px-20 py-8 w-full overflow-auto max-h-96">
-                   <VtcMember VtcId={vtcid}/>
+                  <VtcMember VtcId={vtcid} />
                 </div>
               </div>
             </div>

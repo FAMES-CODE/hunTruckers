@@ -7,7 +7,7 @@ function VtcMember({ VtcId }) {
       .then((response) => response.json())
       .then((data) => setmembersdata(data.data.response.members))
       .catch((err) => {
-        console.log(err);
+        console.err(err);
       });
   }, []);
 
@@ -15,7 +15,7 @@ function VtcMember({ VtcId }) {
     return (
       <div>
         <h1 className="text-2xl font-bold mb-8">VTC Members : {membersdata.length}</h1>
-        <div className="w-full grid grid-cols-3 gap-4 px-5 ">
+        <div className="w-full grid md:grid-cols-3 gap-4 px-5 ">
           {membersdata.map((member) => {
             return (
               <div className="flex flex-col text-left border-l-2">

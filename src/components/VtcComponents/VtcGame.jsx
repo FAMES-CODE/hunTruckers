@@ -8,13 +8,13 @@ function VtcGame({ GameName }) {
     "https://cdn.sanity.io/images/nqsyepft/production/8dcafbf349f734424cd29b04a9260ce990a9476f-256x256.png";
 
   return (
-    <div className="flex items-center">
+    <div className="flex flex-col lg:flex-row items-center">
       <img
         src={GameName == "Euro Truck Simulator 2" ? etsLogo : atsLogo}
         alt=""
         className="w-[128px]"
       />
-      <h1 className="text-fold text-2xl">{GameName}</h1>
+      <h1 className="text-fold text-lg lg:text-2xl">{GameName}</h1>
     </div>
   );
 }
