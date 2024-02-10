@@ -17,4 +17,4 @@ Explore Virtual Trucking Companies and their members effortlessly.
 Find the right VTC that suits your preferences and connect with other
 players who share your passion.
 
-[Backend]https://github.com/FAMES-CODE/hunTruckers-backend
+[Backend repository](https://github.com/FAMES-CODE/hunTruckers-backend)
